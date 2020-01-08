@@ -1,12 +1,14 @@
 import React, {useState,useEffect} from 'react';
-import {data} from "./data"
+import "./styles.css"
 
 const ProductList = () => {
 
     const [characters, setCharacters] = useState([]);
 
     useEffect(()=>{
-        setCharacters(data.results)
+        fetch("https://rickandmortyapi.com/api/character").then(res => res.json()).then(res=> {
+            setCharacters(res.results)
+        }).catch(err => console.log(err))
     },[]);
 
     return (
