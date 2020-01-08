@@ -1,14 +1,12 @@
 import React, {useState,useEffect} from 'react';
+import {data} from "./data"
 
 const ProductList = () => {
 
-    const [characters, setCharacters] = useState([])
+    const [characters, setCharacters] = useState([]);
 
     useEffect(()=>{
-        fetch("https://rickandmortyapi.com/api/character").then(res => res.json()).then(res=> {
-            console.log(res)
-            setCharacters(res.results)
-        }).catch(err => console.log(err))
+        setCharacters(data.results)
     },[]);
 
     return (
@@ -21,6 +19,6 @@ const ProductList = () => {
             ))}
         </section>
     )
-}
+};
 
 export default ProductList;
