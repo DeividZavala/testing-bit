@@ -9,7 +9,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _data = require("./data");
+require("./styles.css");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -30,7 +30,13 @@ var ProductList = function ProductList() {
       setCharacters = _useState2[1];
 
   (0, _react.useEffect)(function () {
-    setCharacters(_data.data.results);
+    fetch("https://rickandmortyapi.com/api/character").then(function (res) {
+      return res.json();
+    }).then(function (res) {
+      setCharacters(res.results);
+    }).catch(function (err) {
+      return console.log(err);
+    });
   }, []);
   return _react.default.createElement("section", {
     className: "grid"

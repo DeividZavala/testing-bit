@@ -14,6 +14,13 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
+  "overrides": {
+    "src/*.css": {
+      "env": {
+        "compiler": "-"
+      }
+    }
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
